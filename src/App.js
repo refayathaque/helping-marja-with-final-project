@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Nav from "./components/Nav";
+import Home from "./pages/Home";
+import Auth from "./pages/Auth";
+import Admin from "./pages/Admin";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Nav></Nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
+
+// notes:
+// Max using older version of react-router-dom, so had to supplant Switch with Routes and refactor Route components
+// https://reactrouter.com/docs/en/v6/upgrading/v5#upgrade-all-switch-elements-to-routes
+// https://github.com/academind/react-complete-guide-code/blob/22-authentication/code/01-starting-project/src/App.js
