@@ -3,17 +3,20 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
+import { AuthContextProvider } from "./store/auth-context";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Nav></Nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthContextProvider>
+      <BrowserRouter>
+        <Nav></Nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthContextProvider>
   );
 };
 
