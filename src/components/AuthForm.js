@@ -56,6 +56,10 @@ const AuthForm = () => {
         // https://firebase.google.com/docs/reference/rest/auth#section-sign-in-email-password
         authCtx.login(data.idToken);
         // return data from this API call has thee idToken which we are storing in the authCtx since we'll need it from other components in the app to make auth'ed API calls to Firebase to do other things like interact with the database for CRUD operations
+        // we also want to store the idToken to check (by virtue of it's existence) whether or not the user is logged in at any point in time
+
+        // to do:
+        // programmatic (and protected) navigation to the admin dashboard upon a successful login
       })
       .catch((err) => {
         alert(err.message);

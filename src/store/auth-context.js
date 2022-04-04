@@ -11,6 +11,7 @@ export const AuthContextProvider = (props) => {
   const [token, setToken] = useState(null);
 
   const userIsLoggedIn = !!token;
+  // !! converts a truthy/falsy value to a true/false boolean, e.g., if token is a string that's NOT empty userIsLoggedIn will be a true boolean
 
   const loginHandler = (token) => {
     setToken(token);
@@ -35,3 +36,6 @@ export const AuthContextProvider = (props) => {
 };
 
 export default AuthContext;
+
+// notes:
+// https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/25889780#overview
